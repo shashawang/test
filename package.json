@@ -8,6 +8,8 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@bytemd/plugin-gfm": "^1.11.0",
+    "@bytemd/vue": "^1.11.0",
     "core-js": "^3.8.3",
     "grunt": "^1.4.1",
     "grunt-cli": "^1.4.3",
