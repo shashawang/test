@@ -6960,6 +6960,11 @@ vue-template-es2015-compiler@^1.9.0:
   resolved "https://registry.npmmirror.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.9.1.tgz"
   integrity sha512-4gDntzrifFnCEvyoO8PqyJDmguXgVPxKiIxrBKjIowvL9l+N66196+72XVYR8BBf1Uv1Fgt3bGevJ+sEmxfZzw==
 
+vue-ueditor-wrap@^2.5.6:
+  version "2.5.6"
+  resolved "https://registry.npmmirror.com/vue-ueditor-wrap/-/vue-ueditor-wrap-2.5.6.tgz#1dca4b1790830f228c08d1c8e07ae7d0a420f1f2"
+  integrity sha512-EJkYLyyzgOJTxGreiZ9wrmXthIMVVRSeFTzV6n0OR9w4aeqW79Prvog4jZ4G0kkmW3TTTBbZtHM9VNHEl6LJDA==
+
 vue@^3.2.13:
   version "3.2.31"
   resolved "https://registry.npmmirror.com/vue/-/vue-3.2.31.tgz"

@@ -1,5 +1,4 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
   <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   <!-- <Editor
     class="byte-editor"
@@ -9,15 +8,22 @@
   /> -->
     <!-- :locale="zhHans"
     :uploadImages="(files) => uploadImages(files)" -->
-    <Editor class="editos" :value="value" />
+    <!-- <EditReports /> -->
+    <UE :config="configEditor" id="ue1" ref="ue" :defaultMsg="value"></UE>
+    <!-- <vueUeditorWrap v-model="msg" :config="editorConfig" editor-id="editor-demo-01"></vueUeditorWrap> -->
+    <!-- <Editor class="editos" :value="value" />
     <Viewer class="viewer" :tabindex="2" :value="value"
-    ></Viewer>
+    ></Viewer> -->
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
+// import EditReports from "./views/editReports.vue";
+// import vueUeditorWrap from "vue-ueditor-wrap";
+import UE from "./views/editor.vue";
 import { Editor,  } from '@bytemd/vue'
 import gfm from '@bytemd/plugin-gfm'
+import { ref } from 'vue';
 
 const plugins = [
   gfm(),
@@ -29,11 +35,40 @@ export default {
   name: "App",
   components: {
     // HelloWorld,
-    Editor
+    Editor,
+    // EditReports，
+    UE,
+    // vueUeditorWrap
   },
-   data() {
-    return { value: '', plugins }
+  setup() {
+    const msg = ref('<h2>Hello World!</h2>');
+    return {
+      msg,
+      value: '', plugins,
+      configEditor: {
+        UEDITOR_HOME_URL: 'UEditor/',
+        serverUrl: '//ueditor.szcloudplus.com/cos',
+        // serverUrl: '//139.159.242.212:3005/data/rsdata/',
+      }
+    };
   },
+
+  //  data() {
+  //   return {
+  //      value: '', plugins,
+       
+  //    }
+  // },
+  created() {
+    // 更多 UEditor 配置，参考 http://fex.baidu.com/ueditor/#start-config
+    this.editorConfig = {
+      // 访问 UEditor 静态资源的根路径，可参考 https://hc199421.gitee.io/vue-ueditor-wrap/#/faq
+      UEDITOR_HOME_URL: '/UEditor/',
+      // 服务端接口（这个地址是我为了方便各位体验文件上传功能搭建的临时接口，请勿在生产环境使用！！！）
+      serverUrl: '//ueditor.szcloudplus.com/cos',
+    };
+  },
+
   methods: {
      handleChange(v) {
       this.value = v
