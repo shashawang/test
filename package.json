@@ -11,9 +11,11 @@
     "@bytemd/plugin-gfm": "^1.11.0",
     "@bytemd/vue": "^1.11.0",
     "core-js": "^3.8.3",
+    "element-plus": "^2.0.4",
     "grunt": "^1.4.1",
     "grunt-cli": "^1.4.3",
     "vue": "^3.2.13",
+    "vue-router": "4",
     "vue-ueditor-wrap": "^2.5.6"
   },
   "devDependencies": {
@@ -22,8 +24,11 @@
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
+    "axios": "^0.26.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-plugin-vue": "^8.0.3",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0"
   },
   "eslintConfig": {
     "root": true,

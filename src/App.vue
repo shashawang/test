@@ -9,18 +9,41 @@
     <!-- :locale="zhHans"
     :uploadImages="(files) => uploadImages(files)" -->
     <!-- <EditReports /> -->
-    <UE :config="configEditor" id="ue1" ref="ue" :defaultMsg="value"></UE>
     <!-- <vueUeditorWrap v-model="msg" :config="editorConfig" editor-id="editor-demo-01"></vueUeditorWrap> -->
     <!-- <Editor class="editos" :value="value" />
     <Viewer class="viewer" :tabindex="2" :value="value"
     ></Viewer> -->
+    <el-container>
+      <el-aside width="200px">
+        <el-menu
+          default-active="2"
+          class="el-menu-vertical-demo"
+          @open="handleOpen"
+          @close="handleClose">
+          <el-submenu index="1">
+            <div slot="title" class="sys_title">
+              <i class="el-icon-location"></i>
+              <span>官网后台</span>
+            </div>
+            <el-menu-item-group>
+              <div slot="title" class="module_title">新闻报道</div>
+              <el-menu-item index="1-1"><router-link to="/reports">列表</router-link></el-menu-item>
+              <el-menu-item index="1-2" ><router-link to="/reportsEdit">编辑</router-link></el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
+        </el-menu>
+      </el-aside>
+      <el-main>
+        <router-view></router-view>
+      </el-main>
+    </el-container>
 </template>
 
 <script>
 // import HelloWorld from "./components/HelloWorld.vue";
 // import EditReports from "./views/editReports.vue";
 // import vueUeditorWrap from "vue-ueditor-wrap";
-import UE from "./views/editor.vue";
+// import UE from "./views/editor.vue";
 import { Editor,  } from '@bytemd/vue'
 import gfm from '@bytemd/plugin-gfm'
 import { ref } from 'vue';
@@ -37,7 +60,7 @@ export default {
     // HelloWorld,
     Editor,
     // EditReports，
-    UE,
+    // UE,
     // vueUeditorWrap
   },
   setup() {
@@ -47,8 +70,11 @@ export default {
       value: '', plugins,
       configEditor: {
         UEDITOR_HOME_URL: 'UEditor/',
-        serverUrl: '//ueditor.szcloudplus.com/cos',
-        // serverUrl: '//139.159.242.212:3005/data/rsdata/',
+        // serverUrl: '//ueditor.szcloudplus.com/cos',
+        // serverUrl: 'http://120.78.221.136:8080/utf8-jsp/jsp/controller.jsp',
+        // imageUrlPrefix: 'http://120.78.221.136:8080/utf8-jsp/ueditor/jsp/upload/image/'
+        serverUrl: 'http://192.168.10.139:8080/utf8-jsp/jsp/controller.jsp',
+        imageUrlPrefix: 'http://192.168.10.139:8080/utf8-jsp/ueditor/jsp/upload/image/'
       }
     };
   },
@@ -70,9 +96,18 @@ export default {
   },
 
   methods: {
+     goto(path) {
+      this.$router.push(path)
+    },
      handleChange(v) {
       this.value = v
     },
+    handleOpen(key, keyPath) {
+        console.log(key, keyPath);
+      },
+      handleClose(key, keyPath) {
+        console.log(key, keyPath);
+      }
     // 上传图片
 
     // async upload(files) {
@@ -112,13 +147,26 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 60px; */
+  .sys_title {
+    font-size: 2vw;
+    margin-top: 20px;
+    font-weight: bold;
+  }
+  .module_title {
+    font-size: 1.5vw;
+    text-align: left;
+    padding: 10px 0 5px 16px;
+  }
+  .el-menu {
+    height: 93vh;
+  }
 }
 </style>

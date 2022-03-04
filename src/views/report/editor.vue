@@ -1,6 +1,6 @@
 <template>
-  <div :id="id" type="text/plain" style="width:1024px;height:500px;"></div>
-  <button @click="getUEContent">获得整个html的内容</button>
+  <div :id="id" type="text/plain" style="width:824px;height:300px;"></div>
+  
 </template>
 <script>
   import '/public/UEditor/ueditor.config.js'
