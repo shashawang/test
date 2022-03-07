@@ -68,14 +68,14 @@ export default {
     return {
       msg,
       value: '', plugins,
-      configEditor: {
-        UEDITOR_HOME_URL: 'UEditor/',
-        // serverUrl: '//ueditor.szcloudplus.com/cos',
-        // serverUrl: 'http://120.78.221.136:8080/utf8-jsp/jsp/controller.jsp',
-        // imageUrlPrefix: 'http://120.78.221.136:8080/utf8-jsp/ueditor/jsp/upload/image/'
-        serverUrl: 'http://192.168.10.139:8080/utf8-jsp/jsp/controller.jsp',
-        imageUrlPrefix: 'http://192.168.10.139:8080/utf8-jsp/ueditor/jsp/upload/image/'
-      }
+      // configEditor: {
+      //   UEDITOR_HOME_URL: 'UEditor/',
+      //   // serverUrl: '//ueditor.szcloudplus.com/cos',
+      //   // serverUrl: 'http://120.78.221.136:8080/utf8-jsp/jsp/controller.jsp',
+      //   // imageUrlPrefix: 'http://120.78.221.136:8080/utf8-jsp/ueditor/jsp/upload/image/'
+      //   serverUrl: 'http://192.168.10.139:8080/utf8-jsp/jsp/controller.jsp',
+      //   imageUrlPrefix: 'http://192.168.10.139:8080/utf8-jsp/ueditor/jsp/upload/image/'
+      // }
     };
   },
 

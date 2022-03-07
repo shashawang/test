@@ -3,10 +3,10 @@
   
 </template>
 <script>
-  import '/public/UEditor/ueditor.config.js'
-  import '/public/UEditor/ueditor.all.min.js'
-  import '/public/UEditor/lang/zh-cn/zh-cn.js'
-  import '/public/UEditor/ueditor.parse.min.js'
+  import '../../assets/UEditor/ueditor.config.js'
+  import '../../assets/UEditor/ueditor.all.min.js'
+  import '../../assets/UEditor/lang/zh-cn/zh-cn.js'
+  import '../../assets/UEditor/ueditor.parse.min.js'
   
   export default {
     name: 'UE',
@@ -29,8 +29,15 @@
       }
     },
     mounted() {
+      console.log('mounted: ----------', );
+  // require('/public/UEditor/ueditor.config.js')
+  // require('/public/UEditor/ueditor.all.min.js')
+  // require('/public/UEditor/lang/zh-cn/zh-cn.js')
+  // require('/public/UEditor/ueditor.parse.min.js')
       this.$nextTick(() => {
         this.editor = UE.getEditor(this.id, this.config); // 初始化UE
+        this.$forceUpdate()
+        console.log('UE: ', UE);
         this.editor.addListener("ready", () => {
           this.editor.execCommand('insertHtml', this.defaultMsg);
           this.editor.focus() // 确保UE加载完成后，放入内容。
