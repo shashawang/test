@@ -1,25 +1,32 @@
 <template>
   <div class="reports">
-    <el-table :data="reportList" stripe style="width: 100%">
-      <el-table-column prop="date" label="发布日期" width="180" />
-      <el-table-column prop="title" label="标题" width="180" />
-      <el-table-column prop="description" label="描述" />
-      <el-table-column fixed="right" label="操作" width="120">
-        <template #default="scope">
-          <el-button type="text" size="small" @click="dele(scope.row.id)">删除</el-button>
-          <el-button type="text" size="small" @click="edit(scope.row.id)">编辑</el-button>
-        </template>
-      </el-table-column>
-    </el-table>
+    <div class="list" v-show="showList">
+      <el-button type="text" size="small" @click="openDetail()">新增</el-button>
+      <el-table :data="reportList" stripe style="width: 100%">
+        <el-table-column prop="date" label="发布日期" width="180" />
+        <el-table-column prop="title" label="标题" width="180" />
+        <el-table-column prop="description" label="描述" />
+        <el-table-column fixed="right" label="操作" width="120">
+          <template #default="scope">
+            <el-button type="text" size="small" @click="dele(scope.row.id)">删除</el-button>
+            <el-button type="text" size="small" @click="openDetail(scope.row.id)">编辑</el-button>
+          </template>
+        </el-table-column>
+      </el-table>
+    </div>
+    <Detail v-show="!showList" :detailId="detailId" @finish="finishDetail" @close="close"></Detail>
   </div>
 </template>
 <script>
+import Detail from './editReports.vue'
   export default {
     name:'',
-    components: {},
+    components: {Detail},
     props:[''],
     data () {
       return {
+        showList: true,
+        detailId: '',
         reportList: [
           {
             // year: 2022,
@@ -54,11 +61,24 @@
       dele(id) {
 
       },
-      edit(id) {
-        this.$router.push({
-          path: '/reportsEdit',
-          query: {id: id}
-        })
+      openDetail(id) {
+        console.log('id: ', id);
+        // this.$router.push({
+        //   path: '/reportsEdit',
+        //   query: {id: id}
+        // })
+        this.showList = false
+        this.detailId = id
+      },
+      back() {
+        this.showList = true
+      },
+      finishDetail() {
+        this.showList = true
+        this.getReportList()
+      },
+      close() {
+        this.showList = true
       },
     },
     computed: {}

@@ -5,6 +5,10 @@ import router from './router'
 import ElementUI from 'element-plus';
 import 'element-plus/dist/index.css';
 import axios from "./utils/http.js"
+import '/public/UEditor/ueditor.config.js'
+import '/public/UEditor/ueditor.all.min.js'
+import '/public/UEditor/lang/zh-cn/zh-cn.js'
+import '/public/UEditor/ueditor.parse.min.js'
 
 // createApp(App).mount('#app')
 const app = createApp(App)
